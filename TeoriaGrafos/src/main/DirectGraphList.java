@@ -294,6 +294,7 @@ public static void main(String[] args) throws FileNotFoundException
     saidaArquivo();
     DirectGraphList g = new DirectGraphList();
     System.out.println(getGrauVertice(5));
+    
     /*hp.heapSort(numeros);
     for(int j=0;j<numeros.size();j++){
     g.addVertice(Integer.toString(numeros.get(j),6));
