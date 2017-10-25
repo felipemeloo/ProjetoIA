@@ -288,12 +288,36 @@ public Vertice getVerticeInicial(){
     return aux;
 }
 
+public static void geraMatriz(ArrayList<Integer> a){
+	int matriz[][] = new int [a.get(0)][a.get(0)];
+	int j=2;
+	for(int i=1;i<a.size();i+=2,j+=2){
+			matriz[a.get(j)-1][a.get(i)-1]=1;
+			matriz[a.get(i)-1][a.get(j)-1]=1;
+		}
+	for(int i=1;i<a.get(0);i++){
+		for(j=1;j<a.get(0);j++){
+			if(matriz[i][j]!=1){
+				matriz[i][j]=0;
+			}
+		}
+	}
+	
+	for(int i=0;i<a.get(0);i++){
+		for(j=0;j<a.get(0);j++){
+			System.out.print(matriz[i][j]);
+			
+		}System.out.println();
+	}
+}
+
 public static void main(String[] args) throws FileNotFoundException
-{
+{	initOrdenacao();
     criaArray(numeros,"C:/TXT/input.txt");
-    saidaArquivo();
+    /*saidaArquivo();
     DirectGraphList g = new DirectGraphList();
-    System.out.println(getGrauVertice(5));
+    System.out.println(getGrauVertice(5));*/
+    geraMatriz(numeros);
     /*hp.heapSort(numeros);
     for(int j=0;j<numeros.size();j++){
     g.addVertice(Integer.toString(numeros.get(j),6));
@@ -306,7 +330,7 @@ public static void main(String[] args) throws FileNotFoundException
     Vertice inicial=g.getVerticeInicial();
     g.printaSequencia(inicial);*/
 }
-public void initOrdenacao() {
+public static void initOrdenacao() {
 	if(hp==null) {
 		hp=new Ordenacao();
 		
