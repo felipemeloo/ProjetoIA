@@ -2,17 +2,19 @@ package buscas;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import main.Vertice;
 import nos.No;
 
-
-
-public class BuscaEmLargura extends Busca {
+public class BuscaEmLargura{
 	
 	// Fila de dados FiFo
-	private Queue<No> filaNos;
-		
+	private Queue<Vertice> filaGrafos;
+	
+
+	
+/*		
 	public BuscaEmLargura(int valorBusca) {
-		this.filaNos = new LinkedList<No>();
+		this.filaNos = new LinkedList<Vertice>();
 		this.setValorBusca(valorBusca);
 	}
 	
@@ -45,6 +47,6 @@ public class BuscaEmLargura extends Busca {
 			return this.filaNos.size();
 		}
 		return 0;
-	}
+	}*/
 	
 }

@@ -28,12 +28,12 @@ public static void main(String[] args) {
 		no3.setNoEsquerda(no5);
 		no5.setNoEsquerda(no2);*/
 		
-		BuscaEmProfundidade bep = new BuscaEmProfundidade(4);
+		/*BuscaEmProfundidade bep = new BuscaEmProfundidade(4);
 		
 		bep.buscarResultado(no0);
-		bep.exibirTextoResultado();
+		bep.exibirTextoResultado();*/
 		
-		BuscaEmLargura bel = new BuscaEmLargura(4);
+		BuscaEmLargura bel = new BuscaEmLargura(6);
 		bel.buscarResultado(no0);
 		bel.exibirTextoResultado();
 		

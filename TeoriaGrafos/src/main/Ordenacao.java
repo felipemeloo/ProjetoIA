@@ -10,17 +10,26 @@ public class Ordenacao{
 	return unsortedList;
 	}
 	public ArrayList<Integer> listaDeVertices(ArrayList<Integer> unsortedList){
-	unsortedList.remove(0);
-		Collections.sort(unsortedList);
+		 ArrayList<Integer> retorno= new ArrayList<Integer>(unsortedList);
+		 retorno.remove(0);
+		Collections.sort(retorno);
 	int atual;
 	int prox;
-	  for(int i=0; i< unsortedList.size(); i++) {
-		  atual=unsortedList.get(i);
-		  prox=unsortedList.get(i+1);
+	  for(int i=0; i< retorno.size();) {
+		  if(i+1==retorno.size()) 
+		  {break;}
+		  atual=retorno.get(i);
+		  prox=retorno.get(i+1);
 		  if(atual==prox) {
-			  unsortedList.remove(i);
-	  }}
-	return unsortedList;
+			  retorno.remove(i);
+			  if(i!=0) {
+			  i--;
+			 }else 
+				 i=0;
+		  }else  
+			  i++;
+	  }
+	return retorno;
 	}
 	public static boolean estaOrdenado(ArrayList<Integer> sortedList)
 	{
