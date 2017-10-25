@@ -1,9 +1,11 @@
 package main;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class DirectGraphList
@@ -183,13 +185,43 @@ public static void criaArray(ArrayList<Integer> a,String nome) throws FileNotFou
             str=arq.readLine();
             if(str!=null) {
             tamanhoIn=str.length();
-            }else break;
+            }else 
+            	break;
         }
     }
     catch(IOException e){
         System.out.println("Erro na abertura do arquivo: "+
                 e.getMessage());
     }
+}
+
+public static void saidaArquivo() {
+	//ArrayList<Integer> ordenados= hp.heapSort(numeros);
+	File arquivo = new File("C:/TXT/saida.txt");
+	try(PrintWriter pw = new PrintWriter(arquivo) ){
+	  pw.println("# n =" + numeros.get(0));
+	  pw.println("# m =" + ((numeros.size()-1)/2) );
+	  //double d_medio = 2* numeros.get(0)/ numeros.size()-1/2;
+	  int metade_lista = ((numeros.size()-1)/2);
+	  for(int i=0; i< metade_lista; i++) {
+		  pw.print(i+1);
+		  pw.println(" "+getGrauVertice(i+1));
+	  }
+	}catch(IOException ex){
+	  ex.printStackTrace();
+	}	
+}
+
+public static int getGrauVertice(Integer vertice) {
+	int grau=0;
+	for (Integer s:numeros) {
+		if(s==vertice)
+			grau++;
+	}
+	if(vertice == numeros.get(0)) {
+		grau--;
+	}
+	return grau;
 }
 public static int diferente(String a,String b){
     int diferentes=0;
@@ -256,21 +288,12 @@ public Vertice getVerticeInicial(){
     return aux;
 }
 
-public static int getGrauVertivce(Integer vertice) {
-	int grau=0;
-	for (Integer s:numeros) {
-		if(s==vertice)
-			grau++;
-	}
-	return grau;
-}
-
-
 public static void main(String[] args) throws FileNotFoundException
 {
-    criaArray(numeros,"C:/Users/pedro/Documents/teste.txt");
+    criaArray(numeros,"C:/TXT/input.txt");
+    saidaArquivo();
     DirectGraphList g = new DirectGraphList();
-    System.out.println(getGrauVertivce(4));
+    System.out.println(getGrauVertice(5));
     /*hp.heapSort(numeros);
     for(int j=0;j<numeros.size();j++){
     g.addVertice(Integer.toString(numeros.get(j),6));
