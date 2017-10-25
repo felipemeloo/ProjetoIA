@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public class Vertice
 {	
-    private String item;
+    public String item;
     private boolean Visitado;
     int maiorSequencia;
-    Vertice proximo;
-    ArrayList<Vertice> lst = new ArrayList<Vertice>();
+    public Vertice proximo;
+    public ArrayList<Vertice> lst = new ArrayList<Vertice>();
 
     public Vertice(String item) {
         this.item = item;
