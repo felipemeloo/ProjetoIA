@@ -36,7 +36,6 @@ public class Vertice
             res = lst.get(i);
         return res;
     }
-    
     public int getDegree(){
         return lst.size(); 
     }

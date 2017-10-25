@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class DirectGraphList
 {
-private static HeapSort hp;
+private static Ordenacao hp;
 private ArrayList<Vertice> vert;
 static ArrayList<Integer> numeros=new ArrayList<Integer>();
 
@@ -202,11 +202,11 @@ public static void saidaArquivo() {
 	  pw.println("# n =" + numeros.get(0));
 	  pw.println("# m =" + ((numeros.size()-1)/2) );
 	  //double d_medio = 2* numeros.get(0)/ numeros.size()-1/2;
-	  int metade_lista = ((numeros.size()-1)/2);
-	  for(int i=0; i< metade_lista; i++) {
-		  pw.print(i+1);
-		  pw.println(" "+getGrauVertice(i+1));
-	  }
+	  for(int i=0; i< numeros.size(); i++) {
+		  if(i%2!=0) {
+		  pw.print(i);
+		  pw.println(" "+getGrauVertice(i));
+		  }}
 	}catch(IOException ex){
 	  ex.printStackTrace();
 	}	
@@ -294,7 +294,6 @@ public static void main(String[] args) throws FileNotFoundException
     saidaArquivo();
     DirectGraphList g = new DirectGraphList();
     System.out.println(getGrauVertice(5));
-    
     /*hp.heapSort(numeros);
     for(int j=0;j<numeros.size();j++){
     g.addVertice(Integer.toString(numeros.get(j),6));
@@ -307,9 +306,9 @@ public static void main(String[] args) throws FileNotFoundException
     Vertice inicial=g.getVerticeInicial();
     g.printaSequencia(inicial);*/
 }
-public void initHeapSort() {
+public void initOrdenacao() {
 	if(hp==null) {
-		hp=new HeapSort();
+		hp=new Ordenacao();
 		
 	}
 }
