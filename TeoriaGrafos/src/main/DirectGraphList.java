@@ -157,15 +157,32 @@ public void showInfo()
     System.out.println("\n    }");
 }
 public static void criaArray(ArrayList<Integer> a,String nome) throws FileNotFoundException{
-    try{
+    int tamanhoIn=0;
+    int tamanhoAt=0;
+    int cont=1;
+    String parcial=null;
+	try{
         FileReader ler= new FileReader(nome);
         BufferedReader arq=new BufferedReader(ler);
         int parsedStr;
         String str=arq.readLine();
-        while(str!=null){
-            parsedStr=Integer.parseInt(str);
-            a.add(parsedStr);
+        tamanhoIn=str.length();
+        while(str!=null) {
+        	while(tamanhoAt!=tamanhoIn){
+	        	if (!str.substring(tamanhoAt,cont).equalsIgnoreCase(" ")){
+	        		parcial=str.substring(tamanhoAt,cont);
+	        	parsedStr=Integer.parseInt(parcial);
+	            a.add(parsedStr);
+	            }
+	        	tamanhoAt++;
+	        	cont=tamanhoAt+1;
+	        }
+        	cont=1;
+        	tamanhoAt=0;
             str=arq.readLine();
+            if(str!=null) {
+            tamanhoIn=str.length();
+            }else break;
         }
     }
     catch(IOException e){
@@ -242,8 +259,9 @@ public Vertice getVerticeInicial(){
 public static void main(String[] args) throws FileNotFoundException
 {
     ArrayList<Integer> numeros=new ArrayList<Integer>();
-    criaArray(numeros,"/home/geovane/Documentos/CC/ALPROII/test100000a");
+    criaArray(numeros,"C:/Users/pedro/Documents/teste.txt");
     DirectGraphList g = new DirectGraphList();
+    System.out.println((numeros.size()-1)/2);
     hp.heapSort(numeros);
     for(int j=0;j<numeros.size();j++){
     g.addVertice(Integer.toString(numeros.get(j),6));
