@@ -10,6 +10,7 @@ public class DirectGraphList
 {
 private static HeapSort hp;
 private ArrayList<Vertice> vert;
+static ArrayList<Integer> numeros=new ArrayList<Integer>();
 
 public DirectGraphList() {
     vert = new ArrayList<Vertice>();
@@ -255,14 +256,22 @@ public Vertice getVerticeInicial(){
     return aux;
 }
 
+public static int getGrauVertivce(Integer vertice) {
+	int grau=0;
+	for (Integer s:numeros) {
+		if(s==vertice)
+			grau++;
+	}
+	return grau;
+}
+
 
 public static void main(String[] args) throws FileNotFoundException
 {
-    ArrayList<Integer> numeros=new ArrayList<Integer>();
     criaArray(numeros,"C:/Users/pedro/Documents/teste.txt");
     DirectGraphList g = new DirectGraphList();
-    System.out.println((numeros.size()-1)/2);
-    hp.heapSort(numeros);
+    System.out.println(getGrauVertivce(4));
+    /*hp.heapSort(numeros);
     for(int j=0;j<numeros.size();j++){
     g.addVertice(Integer.toString(numeros.get(j),6));
     }
@@ -272,7 +281,7 @@ public static void main(String[] args) throws FileNotFoundException
     }
     g.atribuiTamanhoSequencia();
     Vertice inicial=g.getVerticeInicial();
-    g.printaSequencia(inicial);
+    g.printaSequencia(inicial);*/
 }
 public void initHeapSort() {
 	if(hp==null) {
