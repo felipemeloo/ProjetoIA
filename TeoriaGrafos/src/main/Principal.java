@@ -33,9 +33,9 @@ public static void main(String[] args) {
 		bep.buscarResultado(no0);
 		bep.exibirTextoResultado();*/
 		
-		BuscaEmLargura bel = new BuscaEmLargura(6);
+		/*BuscaEmLargura bel = new BuscaEmLargura(6);
 		bel.buscarResultado(no0);
-		bel.exibirTextoResultado();
+		bel.exibirTextoResultado();*/
 		
 		
 	}

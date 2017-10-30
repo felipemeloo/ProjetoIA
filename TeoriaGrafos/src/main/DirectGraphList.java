@@ -7,11 +7,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class DirectGraphList {
 	private static Ordenacao hp;
 	private ArrayList<Vertice> vert;
-	static ArrayList<Integer> numeros = new ArrayList<Integer>();
+	public static ArrayList<Integer> numeros = new ArrayList<Integer>();
 	private static DirectGraphList gp;
 
 	public DirectGraphList() {
@@ -313,11 +314,18 @@ public class DirectGraphList {
 		// }
 		return matriz;
 	}
+	
+	public static Integer recebeVertice() {
+		Scanner ler = new Scanner(System.in);
+		System.out.println("Digite a vértice a ser iniciada a busca:");
+		return ler.nextInt();
+	}
 
 	public static void main(String[] args) throws FileNotFoundException {
 		initOrdenacao();
 		initGraph();
 		criaArray(numeros, "C:/TXT/input.txt");
+		recebeVertice();
 		/*
 		 * saidaArquivo(); DirectGraphList g = new DirectGraphList();
 		 * System.out.println(getGrauVertice(5));
